@@ -4,6 +4,8 @@ select * from MYSQL.user;
 drop user 'test@localhost';
 -- 유저생성
 create user 'test@localhost' identified by 'testpw';
+-- ssh 유저생성
+create user 'test'@'%' identified by 'testpw';
 -- 권한부여
 grant select on board.author to 'test@localhost';
 grant insert on board.author to 'test@localhost';
@@ -11,6 +13,5 @@ grant insert on board.author to 'test@localhost';
 revoke select on board.author from 'test@localhost';
 -- 권한 변경사항 적용
 FLUSH PRIVILEGES;
-
 -- 권한보기
 show grants for 'test@localhost';
